@@ -1,5 +1,5 @@
 import database from "infra/database.js";
-import orchestrator from 'tests/orchestrator.js';
+import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
@@ -22,6 +22,6 @@ test("POST to /api/v1/migrations should return 200", async () => {
   const response2Body = await response2.json();
 
   expect(Array.isArray(response2Body)).toBe(true);
-    //deve ser  0 porque as migrations foram executadas anterior e não esperamos mais nada
+  //deve ser  0 porque as migrations foram executadas anterior e não esperamos mais nada
   expect(response2Body.length).toBe(0);
 });
