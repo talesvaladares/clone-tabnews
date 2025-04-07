@@ -15,7 +15,7 @@ const createJestConfig = nextJest({
 //configuração para que o jest consiga usar o import from mais moderno
 const jestConfig = createJestConfig({
   moduleDirectories: ["node_modules", "<rootDir>"],
-  testTimeout: 60000 // 6 segundos
+  testTimeout: 60000, // 6 segundos
 });
 
 module.exports = jestConfig;
