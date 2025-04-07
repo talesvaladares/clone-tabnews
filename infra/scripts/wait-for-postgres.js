@@ -8,16 +8,16 @@ function checkPostgres() {
   function handleReturn(error, stdout) {
     //quando se roda o script acima ele devolve uma mensagem como a de baixo
     //a função search procura esta mensagem, caso não encontre retorna -1
-    if (stdout.search("accepting connections") === -1) {
+    if (stdout.search('accepting connections') === -1) {
       process.stdout.write('.');
       checkPostgres();
       return;
     }
 
-    console.log("\n🟢 Postgres está pronto e aceitando conexões!\n")
+    console.log('\n🟢 Postgres está pronto e aceitando conexões!\n');
   }
 }
 
-process.stdout.write("\n\n🔴 Aguardando Postgres aceitar conexões");
+process.stdout.write('\n\n🔴 Aguardando Postgres aceitar conexões');
 
 checkPostgres();
