@@ -44,9 +44,6 @@ async function runPendingMigrations() {
     });
 
     return migratedMigrations;
-  } catch (error) {
-    const serviceErrorObject = new ServiceError(error, 'Error ao rodar as migrations');
-    throw serviceErrorObject;
   } finally {
     await dbClient?.end();
   }
