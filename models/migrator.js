@@ -7,7 +7,8 @@ const defaultMigrationOptions = {
   dryRun: true,
   dir: resolve('infra', 'migrations'),
   direction: 'up',
-  verbose: true,
+  // verbose: true,
+  log: () => {}, //tunela os logs para lugar nenhum, para deixar o terminal mais limpo
   migrationsTable: 'pgmigrations',
 };
 
@@ -43,9 +44,6 @@ async function runPendingMigrations() {
     });
 
     return migratedMigrations;
-  } catch (error) {
-    const serviceErrorObject = new ServiceError(error, 'Error ao rodar as migrations');
-    throw serviceErrorObject;
   } finally {
     await dbClient?.end();
   }
