@@ -18,7 +18,6 @@ async function getHandler(request, response) {
 async function patchHandler(request, response) {
   const username = request.query.username;
   const userInputValues = request.body;
-  console.log('body', JSON.stringify(userInputValues, null, 2));
   const updatedUser = await user.update(username, userInputValues);
   return response.status(200).json(updatedUser);
 }
